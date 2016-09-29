@@ -14,7 +14,7 @@
 #       Parameters     #
 ########################
 USER_SUPPLIED_DEP_IDS?=
-SCHEDULER?=sbatch
+SCHEDULER?=qsub
 ########################
 #      /Parameters     #
 ########################
