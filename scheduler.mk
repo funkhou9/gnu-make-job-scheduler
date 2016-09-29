@@ -72,7 +72,7 @@ else
 SCHEDULE_CMD=qsub $(DEP_STRING) $1 -v QSUB_ARGUMENTS='$2' $(PBS_JOB_SCRIPT)
 # Create the qsub like dependency string -d afterok:jobid1,afterok:jobid2
 define CREATE_DEP_STRING
-$(if $(or $1,$(USER_SUPPLIED_DEP_IDS)),-W depend=afterok:$(subst $(SPACE),:,$(foreach dep,$1 $(USER_SUPPLIED_DEP_IDS),$(dep))),)
+$(if $(or $1,$(USER_SUPPLIED_DEP_IDS)),-W depend=afterokarray:$(subst $(SPACE),:,$(foreach dep,$1 $(USER_SUPPLIED_DEP_IDS),$(dep))),)
 endef
 # Output from the qsub command, contains job id in first word if successfull. TODO: check errors
 define GET_JOB_ID_FROM_SUBMIT_RESULT
